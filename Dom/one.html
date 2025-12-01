@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM</title>
+    <style>
+        .bg-black{
+            background-color: #212121;
+            color:chocolate;
+        }
+    </style>
+</head>
+
+<body class="bg-black">
+    <div>
+        <h1 id="heading-title" class="heading">DOM Learning <span style="display: none;">At Github Codespace</span></h1>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum, quis cumque facere, odit perspiciatis magnam debitis repellat pariatur voluptatem aliquam esse praesentium dolores hic ea assumenda nesciunt inventore iste placeat.</p>
+    </div>
+    <script>
+        const title=document.getElementById('heading-title')
+        title.innerText; //'DOM Learning' "innerText gives me only the visible text shown on the screen. It reads styles like display:none, so hidden content is skipped. Because of that, it can trigger reflows and is slower."
+        title.textContent; //'DOM Learning At Github Codespace' extContent gives all text exactly as written in the DOM, including hidden text. It doesn’t care about CSS and is faster because it doesn’t trigger layout calculations."
+        title.innerHTML; //'DOM Learning <span style="display: none;">At Github Codespace</span>'  innerHTML returns the entire HTML content — tags and all. It’s used when we want to insert or update HTML, not just text. It can expose security issues if used with user input because it parses HTML.
+
+    </script>
+</body>
+</html>
