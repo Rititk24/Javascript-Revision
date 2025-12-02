@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body style="background-color: black; color: wheat;">
+    <ul class="language">
+        <li>Javscript</li>
+    </ul>
+</body>
+
+<script>
+
+    //first method
+    function addMoreLanguage(langname){
+        const li=document.createElement('li')
+        li.innerHTML=`${langname}`;
+        document.querySelector('.language').appendChild(li)
+    }
+    addMoreLanguage("c#")
+
+
+    //second method
+    function addMoreLanguage1(langname){
+        const li=document.createElement("li");
+        li.appendChild(document.createTextNode(langname))
+        document.querySelector('.language').appendChild(li);
+    }
+    addMoreLanguage1("Java")
+
+    /*If we need to insert plain text, always prefer createTextNode() because it is safer and more efficient.
+      Use innerHTML only when you intentionally want to insert HTML markup.*/
+
+
+      //How to edit an existing one 
+      const thirdlanguage=document.querySelector("li:nth-child(3)")
+      console.log(thirdlanguage)
+      const newli=document.createElement('li')
+      newli.textContent="python"
+      thirdlanguage.replaceWith(newli)
+
+
+      const firstlanguage=document.querySelector("li:first-child")
+      firstlanguage.outerHTML='<li>Anugular</li>'
+
+
+      //remove
+      const lastlang=document.querySelector("li:last-child")
+      lastlang.remove()
+</script>
+</html>
