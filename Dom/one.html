@@ -1,29 +1,73 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>DOM</title>
     <style>
-        .bg-black{
-            background-color: #212121;
-            color:chocolate;
-        }
+      .bg-black {
+        background-color: #212121;
+        color: chocolate;
+      }
     </style>
-</head>
+  </head>
 
-<body class="bg-black">
+  <body class="bg-black">
     <div>
-        <h1 id="heading-title" class="heading">DOM Learning <span style="display: none;">At Github Codespace</span></h1>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum, quis cumque facere, odit perspiciatis magnam debitis repellat pariatur voluptatem aliquam esse praesentium dolores hic ea assumenda nesciunt inventore iste placeat.</p>
+      <h1 id="heading-title" class="heading">
+        DOM Learning <span style="display: none">At Github Codespace</span>
+      </h1>
+      <h2>
+        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Et, in odio.
+        Vitae
+      </h2>
+      <h2>Lorem ipsum dolor, sit amet consectetur adipisicing elit</h2>
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum, quis
+        cumque facere, odit perspiciatis magnam debitis repellat pariatur
+        voluptatem aliquam esse praesentium dolores hic ea assumenda nesciunt
+        inventore iste placeat.
+      </p>
+      <ul>
+        <li>one</li>
+        <li>two</li>
+        <li>three</li>
+      </ul>
+
+      <!-- example for HTMLcollection -->
+      <ul>
+        <li class="list-item">one</li>
+        <li class="list-item">two</li>
+        <li class="list-item">three</li>
+        <li class="list-item">four</li>
+      </ul>
     </div>
     <script>
-        const title=document.getElementById('heading-title')
-        title.innerText; //'DOM Learning' "innerText gives me only the visible text shown on the screen. It reads styles like display:none, so hidden content is skipped. Because of that, it can trigger reflows and is slower."
-        title.textContent; //'DOM Learning At Github Codespace' extContent gives all text exactly as written in the DOM, including hidden text. It doesn’t care about CSS and is faster because it doesn’t trigger layout calculations."
-        title.innerHTML; //'DOM Learning <span style="display: none;">At Github Codespace</span>'  innerHTML returns the entire HTML content — tags and all. It’s used when we want to insert or update HTML, not just text. It can expose security issues if used with user input because it parses HTML.
+      const title = document.getElementById("heading-title");
+      title.innerText; //'DOM Learning' "innerText gives me only the visible text shown on the screen. It reads styles like display:none, so hidden content is skipped. Because of that, it can trigger reflows and is slower."
+      title.textContent; //'DOM Learning At Github Codespace' extContent gives all text exactly as written in the DOM, including hidden text. It doesn’t care about CSS and is faster because it doesn’t trigger layout calculations."
+      title.innerHTML; //'DOM Learning <span style="display: none;">At Github Codespace</span>'  innerHTML returns the entire HTML content — tags and all. It’s used when we want to insert or update HTML, not just text. It can expose security issues if used with user input because it parses HTML.
 
+      //querySelector
+      document.querySelector("h2"); //querySelector() is a JavaScript DOM method used to select the first HTML element that matches a given CSS selector (like id, class, tag, or attribute
+      const myul = document.querySelector("ul");
+      const myli = myul.querySelector("li");
+      myli.style.color = "blue";
+      myli.innerText = "Four";
+
+      //querySelectorAll
+      //querySelectorAll() is a JavaScript DOM method used to select all HTML elements that match a given CSS selector and returns them as a static NodeList.
+      const myH1 = document.querySelectorAll("h1");
+      undefined;
+      myH1.style.color = "green"; //one.html:54 Uncaught TypeError: Cannot set properties of undefined (setting 'color'). This is because it return nodelist which look like array but it is not array. But we have to give index to which element we are targeting like array.
+      myH1[0].style.color = "green"; //This works properly
+
+      document.getElementsByClassName("list-item"); //it return htmlcollection if we want to loop on this we have to convert this into array first.
+      const myclasslist = document.getElementsByClassName("list-item");
+      const convertedArray = Array.from(myclasslist); //It converts into array
+      convertedArray.forEach(function (li) {
+        li.style.color = "blue";
+      });
     </script>
-</body>
+  </body>
 </html>
