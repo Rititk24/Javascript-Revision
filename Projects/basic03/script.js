@@ -19,7 +19,7 @@ const clock = document.querySelector('#clock');
 
 function animateClock() {
   clock.textContent = new Date().toLocaleTimeString();
-  requestAnimationFrame(animateClock);
+  requestAnimationFrame(animateClock); 
 }
 
 animateClock();
